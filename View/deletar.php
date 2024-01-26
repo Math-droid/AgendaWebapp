@@ -50,7 +50,7 @@ include_once("../Model/bancoContato.php");
     <button type="button" Id_Contato="<?php echo($contatos["Id_Contato"]);?>" nomeContato= "<?= $contatos["nomeContato"]?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletarModal">
     Deletar
     </button>
-      </a>
+
       </td>
     </tr>
        <?php
@@ -82,21 +82,22 @@ include_once("../Model/bancoContato.php");
     </div>
   </div>
 </div>
+
 <script>
   let deletarContatoModal = document.getElementById('deletarModal');
       
-      deletarContatoModal.addEventListener('show.bs.modal',function(event)){
+      deletarContatoModal.addEventListener('show.bs.modal',function(event){
   let button = event.relatedTarget;
   let IdContato = button.getAttribute('Id_Contato');
   let nomeContato = button.getAttribute('nomeContato');
 
   let modalBody = deletarContatoModal.querySelector('.modal-body');
   //
-  modalBody.textContent= 'Deseja realmente excluir o Contato? '+ nomeContato + Id_Contato+'?';
+  modalBody.textContent= 'Deseja realmente excluir o Contato '+ nomeContato +'?'
   
-  let Id_Contato = deletarContatoModal.querySelector('.modal-footer .Id_Contato');
-  ID_Contato.value = IdContato;
-  }
+  let IDContato = deletarContatoModal.querySelector('.modal-footer .Id_Contato');
+  IDContato.value = IdContato;
+  })
 </script>
 <?php
 include_once("footer.php");
